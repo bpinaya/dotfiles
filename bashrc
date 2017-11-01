@@ -118,3 +118,10 @@ if command -v tmux>/dev/null; then
  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
+# ROS specifics
+source /opt/ros/indigo/setup.bash
+export JAVA_HOME=/usr/java/jdk1.8.0_151
+export IS_GAZEBO=true
+export ROBOT_NAME=VALKYRIE
+#export ROBOT_NAME=ATLAS
+export IHMC_SOURCE_LOCATION=$HOME/ihmc-open-robotics-software
