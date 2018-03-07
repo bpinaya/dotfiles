@@ -119,7 +119,7 @@ if command -v tmux>/dev/null; then
 fi
 
 # ROS specifics
-source /opt/ros/indigo/setup.bash
+# source /opt/ros/indigo/setup.bash
 export JAVA_HOME=/usr/java/jdk1.8.0_151
 export IS_GAZEBO=true
 export ROBOT_NAME=VALKYRIE
