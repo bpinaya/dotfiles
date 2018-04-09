@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -113,10 +116,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
 # TMUX startup
 if command -v tmux>/dev/null; then
  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
-# ROS specifics
-# source /opt/ros/kinetic/setup.bash
+source /opt/ros/kinetic/setup.bash
+
+function setup_kobi_ztm() {
+  # Sets up ROS environment.
+  source /opt/ros/kinetic/setup.bash
+  # Set up Kobi ZTM build system.
+  source ~/kobi_ztm_ws/src/kobi_ztm/build_system/setup.sh
+}
+# Sets up the environment for the ZTM project.
+setup_kobi_ztm
