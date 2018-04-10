@@ -133,3 +133,5 @@ function setup_kobi_ztm() {
 }
 # Sets up the environment for the ZTM project.
 setup_kobi_ztm
+
+alias do-yapf="yapf --style='{based_on_style: google, indent_width: 2, continuation_indent_width: 4}' -i"
