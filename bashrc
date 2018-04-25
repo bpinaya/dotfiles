@@ -62,6 +62,10 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
+###########################################################################################################
+# Other useful functions
+###########################################################################################################
+
 # Add git branch if its present to PS1
 parse_git_branch() {
  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -73,6 +77,13 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# Print available colors, pipe with "| column" for better output
+print_colors(){
+    for i in {0..255} ; do
+        printf "\x1b[38;5;${i}mcolour${i}\n"
+    done
+}
+###########################################################################################################
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -146,3 +157,10 @@ function setup_kobi_ztm() {
 setup_kobi_ztm
 
 alias do-yapf="yapf --style='{based_on_style: google, indent_width: 2, continuation_indent_width: 4}' -i"
+
+KOBI="/home/bpinaya/kobi_ztm_ws/devel_amd64/setup.sh"
+if [[ -f "$KOBI" ]]; then 
+    source $KOBI
+else
+    echo "KOBI setup doesn't exists yet"
+fi
