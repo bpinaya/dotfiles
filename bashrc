@@ -164,3 +164,11 @@ if [[ -f "$KOBI" ]]; then
 else
     echo "KOBI setup doesn't exists yet"
 fi
+
+#Android Studio
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Comment when using ROS
+#export PATH="/home/bpinaya/anaconda2/bin:$PATH"
