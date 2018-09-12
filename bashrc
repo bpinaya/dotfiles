@@ -172,3 +172,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Comment when using ROS
 #export PATH="/home/bpinaya/anaconda2/bin:$PATH"
+#export KOBI_DATASET=/home/bpinaya/Documents/kobi-data
