@@ -139,12 +139,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
-# TMUX startup
-if command -v tmux>/dev/null; then
- [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
 source /opt/ros/kinetic/setup.bash
 
 function setup_kobi_ztm() {
@@ -171,5 +165,36 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Comment when using ROS
-#export PATH="/home/bpinaya/anaconda2/bin:$PATH"
 #export KOBI_DATASET=/home/bpinaya/Documents/kobi-data
+
+# export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:/home/bpinaya/flutter/bin
+
+# added by Anaconda3 5.3.1 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+# ------------------
+# __conda_setup="$(CONDA_REPORT_ERRORS=false '/home/bpinaya/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     \eval "$__conda_setup"
+# else
+#     if [ -f "/home/bpinaya/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/bpinaya/anaconda3/etc/profile.d/conda.sh"
+#         CONDA_CHANGEPS1=false conda activate base
+#     else
+#         \export PATH="/home/bpinaya/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# ------------------
+# <<< conda init <<<
+
+# TMUX startup
+if command -v tmux>/dev/null; then
+ [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmux
+fi
